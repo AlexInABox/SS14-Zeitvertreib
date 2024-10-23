@@ -40,7 +40,10 @@ jobs:
 
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
-
+      
+    - name: Debug tree
+      run: tree
+      
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
