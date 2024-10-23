@@ -42,7 +42,9 @@ jobs:
       run: dotnet run --project Content.Packaging client --no-wipe-release
       
     - name: Debug tree
-      run: tree
+      run: |
+        cd Tools
+        tree
       
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
@@ -50,7 +52,7 @@ jobs:
         draft: true
         name: "New Release!"
         files: |
-          Tools/release/linux-x64
+          Tools/release/*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
